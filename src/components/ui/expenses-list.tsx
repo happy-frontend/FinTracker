@@ -139,7 +139,7 @@ export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: nu
                 <thead className="bg-surface-container-lowest sticky top-0 z-10">
                     <tr className="border-b border-outline-variant/10">
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Date</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Merchant & Venue</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Caterer & Venue</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Labour</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Transport</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Total Outflow</th>

@@ -93,7 +93,7 @@ export function CatererSummary({ dateRange }: { dateRange: DateRange }) {
             <table className="w-full text-sm text-left border-collapse">
                 <thead className="bg-surface-container-low/20">
                     <tr className="border-b border-outline-variant/10">
-                        <th className="px-6 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Merchant</th>
+                        <th className="px-6 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Caterer</th>
                         <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-center">Events</th>
                         <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Value</th>
                         <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Settled</th>

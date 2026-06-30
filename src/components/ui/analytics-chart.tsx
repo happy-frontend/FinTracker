@@ -148,7 +148,7 @@ export function AnalyticsChart({ dateRange }: { dateRange: DateRange }) {
                     <Area 
                         type="monotone" 
                         dataKey="income" 
-                        name="Gross Income" 
+                        name="Income" 
                         stroke="#00342d" 
                         strokeWidth={2.5}
                         fillOpacity={1} 
@@ -158,7 +158,7 @@ export function AnalyticsChart({ dateRange }: { dateRange: DateRange }) {
                     <Area 
                         type="monotone" 
                         dataKey="expenses" 
-                        name="Outflows" 
+                        name="Expenses" 
                         stroke="#ba1a1a80" 
                         strokeWidth={1.5}
                         strokeDasharray="4 4"

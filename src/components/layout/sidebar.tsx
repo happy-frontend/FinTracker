@@ -34,7 +34,7 @@ export function Sidebar() {
         <>
             {/* Mobile menu toggle */}
             <div className="md:hidden flex items-center justify-between p-4 bg-surface-container-lowest border-b border-outline-variant/15 w-full z-50 fixed top-0 h-16 shadow-sm">
-                <h1 className="text-xl font-display font-bold text-primary tracking-tight">FinTracker</h1>
+                <h1 className="text-xl font-display font-bold text-primary tracking-tight">Gill Brothers Crockery Services</h1>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 text-on-surface hover:text-primary transition-colors focus:outline-none"
@@ -61,10 +61,7 @@ export function Sidebar() {
                 {/* Brand Section */}
                 <div className="flex h-24 items-center px-8 hidden md:flex">
                     <h1 className="text-2xl font-display font-bold text-primary tracking-tight decoration-emerald-500/30 underline-offset-8">
-                        FinTracker 
-                        <span className="block text-[10px] font-medium tracking-[0.2em] uppercase text-on-surface-variant/60 mt-1">
-                            The Digital Curator
-                        </span>
+                        Gill Brothers Crockery Services
                     </h1>
                 </div>
 
@@ -111,8 +108,8 @@ export function Sidebar() {
                                 <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 bg-success border-2 border-surface rounded-full shadow-sm"></div>
                             </div>
                             <div className="ml-3">
-                                <p className="text-sm font-bold text-on-surface font-display leading-tight">Admin</p>
-                                <p className="text-[11px] font-medium text-on-surface-variant/70 tracking-tight">Enterprise Access</p>
+                                <p className="text-sm font-bold text-on-surface font-display leading-tight">Happy</p>
+                                <p className="text-[11px] font-medium text-on-surface-variant/70 tracking-tight">Owner</p>
                             </div>
                         </div>
                         <button 

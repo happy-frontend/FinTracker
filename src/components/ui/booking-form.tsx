@@ -133,7 +133,7 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                     <div className="space-y-1.5">
                         <label className={labelClasses}>
                             <Calendar className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                            Event Date
+                            Function Date
                         </label>
                         <input
                             type="date"
@@ -165,7 +165,7 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                     <div className="space-y-1.5">
                         <label className={labelClasses}>
                             <MapPin className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                            Venue Location
+                            Palace / City
                         </label>
                         <input
                             type="text"
@@ -177,65 +177,9 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                         />
                     </div>
 
-                    {/* No of Waiters */}
-                    <div className="space-y-1.5">
-                        <label className={labelClasses}>
-                            <Activity className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                            Staff Count
-                        </label>
-                        <input
-                            type="number"
-                            min="0"
-                            placeholder="e.g. 5"
-                            value={formData.noOfWaiters}
-                            onChange={(e) => setFormData({ ...formData, noOfWaiters: e.target.value })}
-                            className={inputClasses}
-                        />
-                    </div>
-
-                    {/* Labour Cost */}
-                    <div className="space-y-1.5">
-                        <label className={labelClasses}>
-                            <BadgeIndianRupee className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                            Base Labour Cost
-                        </label>
-                        <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
-                            <input
-                                type="number"
-                                min="0"
-                                step="0.01"
-                                placeholder="0.00"
-                                value={formData.labourCost}
-                                onChange={(e) => setFormData({ ...formData, labourCost: e.target.value })}
-                                className={cn(inputClasses, "pl-10")}
-                            />
-                        </div>
-                    </div>
-
-                    {/* Transport Cost */}
-                    <div className="space-y-1.5">
-                        <label className={labelClasses}>
-                            <CreditCard className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                            Transport Base
-                        </label>
-                        <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
-                            <input
-                                type="number"
-                                min="0"
-                                step="0.01"
-                                placeholder="0.00"
-                                value={formData.transport}
-                                onChange={(e) => setFormData({ ...formData, transport: e.target.value })}
-                                className={cn(inputClasses, "pl-10")}
-                            />
-                        </div>
-                    </div>
-
                     {/* Booking Amount */}
                     <div className="space-y-1.5">
-                        <label className={labelClasses}>Total Invoice Value</label>
+                        <label className={labelClasses}>Booking Amount</label>
                         <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-bold">₹</span>
                             <input
@@ -251,9 +195,25 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                         </div>
                     </div>
 
+                    {/* No of Waiters */}
+                    <div className="space-y-1.5">
+                        <label className={labelClasses}>
+                            <Activity className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
+                            No of Waiters
+                        </label>
+                        <input
+                            type="number"
+                            min="0"
+                            placeholder="e.g. 5"
+                            value={formData.noOfWaiters}
+                            onChange={(e) => setFormData({ ...formData, noOfWaiters: e.target.value })}
+                            className={inputClasses}
+                        />
+                    </div>
+
                     {/* Amount Received */}
                     <div className="space-y-1.5">
-                        <label className={labelClasses}>Advance Received</label>
+                        <label className={labelClasses}>Amount Received</label>
                         <div className="relative">
                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
                             <input
@@ -280,9 +240,49 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                         </div>
                     </div>
 
+                    {/* Labour Cost */}
+                    <div className="space-y-1.5">
+                        <label className={labelClasses}>
+                            <BadgeIndianRupee className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
+                            Labour Cost
+                        </label>
+                        <div className="relative">
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
+                            <input
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                value={formData.labourCost}
+                                onChange={(e) => setFormData({ ...formData, labourCost: e.target.value })}
+                                className={cn(inputClasses, "pl-10")}
+                            />
+                        </div>
+                    </div>
+
+                    {/* Transport Cost */}
+                    <div className="space-y-1.5">
+                        <label className={labelClasses}>
+                            <CreditCard className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
+                            Transport Cost
+                        </label>
+                        <div className="relative">
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
+                            <input
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                value={formData.transport}
+                                onChange={(e) => setFormData({ ...formData, transport: e.target.value })}
+                                className={cn(inputClasses, "pl-10")}
+                            />
+                        </div>
+                    </div>
+
                     {/* Payment Status */}
                     <div className="space-y-1.5">
-                        <label className={labelClasses}>Current Status</label>
+                        <label className={labelClasses}>Payment Status</label>
                         <select
                             value={formData.paymentStatus}
                             onChange={(e) => setFormData({ ...formData, paymentStatus: e.target.value })}
@@ -303,21 +303,21 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
             <div className="bg-surface-container-low/40 p-8 rounded-2xl border border-outline-variant/10 space-y-6">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h3 className="text-lg font-display font-bold text-primary">Associated Expenses</h3>
-                        <p className="text-[11px] text-on-surface-variant/60 font-medium">Capture granular operational costs (Optional)</p>
+                        <h3 className="text-lg font-display font-bold text-primary">Additional Expenses</h3>
+                        <p className="text-[11px] text-on-surface-variant/60 font-medium">Add any extra costs for this event (optional)</p>
                     </div>
                     <button
                         type="button"
                         onClick={addExpense}
                         className="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary text-xs font-bold uppercase tracking-widest rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
                     >
-                        <Plus className="w-4 h-4" /> Add Line Item
+                        <Plus className="w-4 h-4" /> Add Expense
                     </button>
                 </div>
                 
                 {expenses.length === 0 ? (
                     <div className="text-center py-12 border-2 border-dashed border-outline-variant/20 rounded-xl">
-                        <p className="text-sm text-on-surface-variant font-medium italic opacity-40">No additional expenses registered for this event.</p>
+                        <p className="text-sm text-on-surface-variant font-medium italic opacity-40">No extra expenses added yet.</p>
                     </div>
                 ) : (
                     <div className="space-y-4">
@@ -377,7 +377,7 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
             <div className="pt-4 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-outline-variant/10">
                 <div className="flex-1">
                     <p className="text-xs text-on-surface-variant/40 font-medium leading-relaxed max-w-sm">
-                        By submitting this entry, you verify that all data points have been audited and reflect the accurate financial state of the event.
+                        Please review the details before saving.
                     </p>
                 </div>
                 <div className="flex gap-4">
@@ -387,7 +387,7 @@ export function BookingForm({ onSuccess }: { onSuccess?: () => void }) {
                         className="btn-primary min-w-[220px] shadow-lg shadow-primary/20 relative overflow-hidden group"
                     >
                         <span className={cn("transition-all duration-300", loading ? "opacity-0 invisible" : "opacity-100 visible")}>
-                            Verify & Save Ledger
+                            Save Booking
                         </span>
                         {loading && (
                             <div className="absolute inset-0 flex items-center justify-center">

@@ -83,7 +83,7 @@ export default function DashboardPage() {
                         Dashboard Overview
                     </h1>
                     <p className="text-lg text-on-surface-variant font-medium mt-3 max-w-lg leading-relaxed">
-                        A bespoke summary of your business financials, meticulously curated for deep insight and accurate tracking.
+                        Your business at a glance — income, expenses, and profit.
                     </p>
                 </div>
                 <div className="flex-shrink-0">
@@ -100,7 +100,7 @@ export default function DashboardPage() {
                         </div>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">Revenue</span>
                     </div>
-                    <p className="text-sm font-medium text-on-surface-variant">Total Gross Volume</p>
+                    <p className="text-sm font-medium text-on-surface-variant">Total Income</p>
                     <p className="mt-2 text-3xl font-display font-bold text-primary">
                         {loading ? "..." : `₹${metrics.totalRevenue.toLocaleString()}`}
                     </p>
@@ -124,9 +124,8 @@ export default function DashboardPage() {
                         <div className="p-2 bg-primary/10 rounded-lg text-primary">
                             <PieChart className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">Yield</span>
                     </div>
-                    <p className="text-sm font-medium text-on-surface-variant">Net Profit Margin</p>
+                    <p className="text-sm font-medium text-on-surface-variant">Net Profit</p>
                     <p className="mt-2 text-3xl font-display font-bold text-primary">
                         {loading ? "..." : `₹${metrics.netProfit.toLocaleString()}`}
                     </p>
@@ -137,9 +136,8 @@ export default function DashboardPage() {
                         <div className="p-2 bg-error-container/30 rounded-lg text-error">
                             <Clock className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">Arrears</span>
                     </div>
-                    <p className="text-sm font-medium text-on-surface-variant">Pending Receivables</p>
+                    <p className="text-sm font-medium text-on-surface-variant">Pending Payments</p>
                     <p className="mt-2 text-3xl font-display font-bold text-error">
                         {loading ? "..." : `₹${metrics.pendingReceivables.toLocaleString()}`}
                     </p>
@@ -150,7 +148,7 @@ export default function DashboardPage() {
             <div className="grid gap-8 lg:grid-cols-3">
                 <div className="lg:col-span-2 surface-paper p-8">
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-display font-bold text-primary">Financial Trends</h2>
+                        <h2 className="text-2xl font-display font-bold text-primary">Income vs Expenses</h2>
                         <div className="h-0.5 flex-1 mx-8 bg-outline-variant/10"></div>
                     </div>
                     <div className="h-[400px]">
@@ -159,14 +157,14 @@ export default function DashboardPage() {
                 </div>
 
                 <div className="surface-paper p-8">
-                    <h2 className="text-2xl font-display font-bold text-primary mb-8 underline decoration-primary/10 underline-offset-8">Engagement</h2>
+                    <h2 className="text-2xl font-display font-bold text-primary mb-8 underline decoration-primary/10 underline-offset-8">Caterer Activity</h2>
                     <div className="space-y-8">
                         <div className="bg-surface-container-low/50 p-6 rounded-xl">
                             <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Caterer Distribution</h3>
                             <CatererSummary dateRange={selectedRange} />
                         </div>
                         <div className="bg-surface-container-low/50 p-6 rounded-xl">
-                            <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Partner Allocations</h3>
+                            <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/50 mb-4">Partner Capital</h3>
                             <PartnerSummary dateRange={selectedRange} />
                         </div>
                     </div>
@@ -177,8 +175,7 @@ export default function DashboardPage() {
             <div className="grid gap-8 xl:grid-cols-2">
                 <div className="surface-paper p-8 flex flex-col min-h-[600px] overflow-hidden">
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-display font-bold text-primary">Income Ledger</h2>
-                        <span className="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant rounded-full">Live Records</span>
+                        <h2 className="text-2xl font-display font-bold text-primary">Income</h2>
                     </div>
                     <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
                         <IncomeList refreshTrigger={0} dateRange={selectedRange} />
@@ -187,8 +184,7 @@ export default function DashboardPage() {
 
                 <div className="surface-paper p-8 flex flex-col min-h-[600px] overflow-hidden">
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-display font-bold text-primary">Expense Accounts</h2>
-                        <span className="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant rounded-full">Verified Vouchers</span>
+                        <h2 className="text-2xl font-display font-bold text-primary">Expenses</h2>
                     </div>
                     <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
                         <ExpensesList refreshTrigger={0} dateRange={selectedRange} />

@@ -123,7 +123,7 @@ export function PartnerSummary({ dateRange }: { dateRange: DateRange }) {
                     <div className="p-2 bg-primary/10 rounded-lg text-primary">
                         <Users className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 font-display">Calculated Net Position</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60 font-display">Total Profit</span>
                 </div>
                 <div className={cn("text-lg font-display font-bold flex items-center gap-2", netProfit >= 0 ? "text-primary" : "text-error")}>
                     {netProfit >= 0 ? <TrendingUp className="w-5 h-5" /> : <TrendingDown className="w-5 h-5" />}
@@ -135,7 +135,7 @@ export function PartnerSummary({ dateRange }: { dateRange: DateRange }) {
                 <table className="w-full text-sm text-left border-collapse">
                     <thead className="bg-surface-container-low/20">
                         <tr className="border-b border-outline-variant/10">
-                            <th className="px-6 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Partner Entity</th>
+                            <th className="px-6 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Partner</th>
                             <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Capital</th>
                             <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-center">Split %</th>
                             <th className="px-4 py-4 text-[10px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Equity Share</th>
@@ -162,7 +162,7 @@ export function PartnerSummary({ dateRange }: { dateRange: DateRange }) {
                     </tbody>
                     <tfoot className="bg-primary/5 font-display font-bold text-primary">
                         <tr>
-                            <td className="px-6 py-4 text-[10px] uppercase tracking-widest opacity-40">Aggregate Distribution</td>
+                            <td className="px-6 py-4 text-[10px] uppercase tracking-widest opacity-40">Total</td>
                             <td className="px-4 py-4 text-right">₹{totals.investment.toLocaleString()}</td>
                             <td className="px-4 py-4 text-center">{totals.share}%</td>
                             <td className={cn("px-4 py-4 text-right text-lg", totals.profit >= 0 ? "text-primary" : "text-error")}>

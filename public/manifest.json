@@ -1,0 +1,26 @@
+{
+  "name": "Gill Brothers Crockery Services",
+  "short_name": "Crockery Tracker",
+  "description": "Bookings, payments & partner accounts for Gill Brothers Crockery Services.",
+  "id": "/",
+  "scope": "/",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00342d",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/logo_v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo_v1.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

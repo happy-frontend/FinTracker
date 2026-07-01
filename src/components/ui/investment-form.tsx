@@ -69,7 +69,7 @@ export function InvestmentForm({ onSuccess }: { onSuccess?: () => void }) {
                 <div className="space-y-1.5 flex flex-col">
                     <label className={labelClasses}>
                         <Calendar className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                        Date of Transfer
+                        Date
                     </label>
                     <input
                         type="date"
@@ -85,7 +85,7 @@ export function InvestmentForm({ onSuccess }: { onSuccess?: () => void }) {
                 <div className="space-y-1.5 flex flex-col">
                     <label className={labelClasses}>
                         <User className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                        Partner Entity
+                        Partner
                     </label>
                     <select
                         required
@@ -107,7 +107,7 @@ export function InvestmentForm({ onSuccess }: { onSuccess?: () => void }) {
                 <div className="space-y-1.5 flex flex-col">
                     <label className={labelClasses}>
                         <BadgeIndianRupee className="inline-block w-3.5 h-3.5 mr-2 mb-0.5 opacity-40" />
-                        Capital Amount
+                        Amount
                     </label>
                     <div className="relative">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-bold">₹</span>
@@ -146,7 +146,7 @@ export function InvestmentForm({ onSuccess }: { onSuccess?: () => void }) {
                     disabled={loading || !formData.partnerId}
                     className="btn-primary min-w-[200px] shadow-lg shadow-primary/20"
                 >
-                    {loading ? "Authorizing Capital..." : "Finalize Investment"}
+                    {loading ? "Saving..." : "Save Investment"}
                 </button>
             </div>
         </form>

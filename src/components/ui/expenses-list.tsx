@@ -18,7 +18,7 @@ type ExpenseRecord = {
     description?: string | null;
 };
 
-export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: number, dateRange?: DateRange }) {
+export function ExpensesList({ refreshTrigger, dateRange, onStatusChange }: { refreshTrigger: number, dateRange?: DateRange, onStatusChange?: () => void }) {
     const [expenses, setExpenses] = useState<ExpenseRecord[]>([]);
     const [loading, setLoading] = useState(true);
     const [editingExpense, setEditingExpense] = useState<ExpenseRecord | null>(null);
@@ -70,6 +70,7 @@ export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: nu
             // Optimistic update
             setExpenses(expenses.filter(exp => exp.id !== id));
             toast.success("Expense record purged systematically");
+            if (onStatusChange) onStatusChange();
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message : String(error);
             toast.error("Error deleting record: " + message);
@@ -114,6 +115,7 @@ export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: nu
             setExpenses(expenses.map(exp => exp.id === editingExpense.id ? { ...exp, ...payload } : exp));
             setEditingExpense(null);
             toast.success("Voucher updated");
+            if (onStatusChange) onStatusChange();
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message : String(error);
             toast.error("Error updating record: " + message);
@@ -142,9 +144,9 @@ export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: nu
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Caterer & Venue</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Labour</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Transport</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Total Outflow</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Total Expenses</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Notes</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Audit</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right"></th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-outline-variant/5">
@@ -181,17 +183,17 @@ export function ExpensesList({ refreshTrigger, dateRange }: { refreshTrigger: nu
                                     </span>
                                 </td>
                                 <td className="px-8 py-6 text-right">
-                                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
+                                    <div className="flex items-center justify-end gap-2">
                                         <button 
                                             onClick={() => handleEditClick(exp)}
-                                            className="p-2 text-on-surface-variant/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 rounded-lg"
+                                            className="p-2 text-on-surface-variant/30 hover:text-primary hover:bg-primary/5 active:scale-95 transition-all duration-300 rounded-lg cursor-pointer"
                                             title="Edit Records"
                                         >
                                             <Edit2 className="w-4 h-4" />
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(exp.id)}
-                                            className="p-2 text-on-surface-variant/50 hover:text-error hover:bg-error-container/20 transition-all duration-300 rounded-lg"
+                                            className="p-2 text-on-surface-variant/30 hover:text-error hover:bg-error-container/20 active:scale-95 transition-all duration-300 rounded-lg cursor-pointer"
                                             title="Purge Record"
                                         >
                                             <Trash2 className="w-4 h-4" />

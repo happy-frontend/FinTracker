@@ -67,9 +67,9 @@ export function PartnerList({ refreshTrigger }: { refreshTrigger: number }) {
             <table className="w-full text-left border-collapse">
                 <thead className="bg-surface-container-lowest sticky top-0 z-10">
                     <tr className="border-b border-outline-variant/10">
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Legal Entity (Partner)</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Aggregated Capital</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Equity Allocation</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40">Partner</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Total Capital</th>
+                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Profit Share</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-outline-variant/5">
@@ -85,9 +85,6 @@ export function PartnerList({ refreshTrigger }: { refreshTrigger: number }) {
                                             <span className="text-sm font-display font-bold text-primary">
                                                 {partner.name}
                                             </span>
-                                            <span className="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant/40 mt-1">
-                                                Verified Stakeholder
-                                            </span>
                                         </div>
                                     </div>
                                 </td>
@@ -102,7 +99,7 @@ export function PartnerList({ refreshTrigger }: { refreshTrigger: number }) {
                                             : "bg-primary/5 text-primary border border-primary/10 group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-lg group-hover:shadow-primary/20"
                                     )}>
                                         {partner.name === "Shared Capital" ? <BadgeIndianRupee className="w-3 h-3" /> : <Percent className="w-3 h-3" />}
-                                        {partner.name === "Shared Capital" ? "Capital Pool" : `${partner.profit_share_percentage.toFixed(1)}%`}
+                                        {partner.name === "Shared Capital" ? "Shared" : `${partner.profit_share_percentage.toFixed(1)}%`}
                                     </span>
                                 </td>
                             </tr>
@@ -112,9 +109,9 @@ export function PartnerList({ refreshTrigger }: { refreshTrigger: number }) {
                 {totalBusinessInvestment > 0 && (
                     <tfoot className="bg-primary/5 font-display font-bold text-primary">
                         <tr>
-                            <td className="px-8 py-5 text-[11px] uppercase tracking-[0.2em] opacity-40">Total Net Capital</td>
+                            <td className="px-8 py-5 text-[11px] uppercase tracking-[0.2em] opacity-40">Total</td>
                             <td className="px-8 py-5 text-right text-lg">₹{totalBusinessInvestment.toLocaleString()}</td>
-                            <td className="px-8 py-5 text-right text-sm uppercase tracking-widest opacity-60">100% Interest</td>
+                            <td className="px-8 py-5 text-right text-sm uppercase tracking-widest opacity-60">100%</td>
                         </tr>
                     </tfoot>
                 )}

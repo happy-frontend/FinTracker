@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { RegisterPartnerForm } from "@/components/ui/register-partner-form";
 import { PartnerList } from "@/components/ui/partner-list";
-import { Users, UserPlus, ClipboardList } from "lucide-react";
+import { UserPlus, ClipboardList } from "lucide-react";
 
 export default function PartnersPage() {
     const [refreshList, setRefreshList] = useState(0);
@@ -17,12 +17,11 @@ export default function PartnersPage() {
             {/* Header Section */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/10 pb-8">
                 <div className="max-w-2xl">
-                    <h1 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight flex items-center gap-4">
-                        Equity & Partnership
-                        <Users className="w-8 h-8 text-primary/20" />
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight">
+                        Partners
                     </h1>
                     <p className="text-lg text-on-surface-variant font-medium mt-3 max-w-lg leading-relaxed">
-                        Governance of ownership and capital distribution. A transparent record of stakeholder interests and financial commitment.
+                        Manage business partners and their capital share.
                     </p>
                 </div>
             </div>
@@ -34,19 +33,12 @@ export default function PartnersPage() {
                         <div className="bg-primary/5 px-8 py-4 border-b border-outline-variant/10 flex items-center justify-between">
                             <h2 className="text-sm font-display font-bold uppercase tracking-[0.2em] text-primary/70 flex items-center gap-2">
                                 <UserPlus className="w-4 h-4" />
-                                Onboard Stakeholder
+                                Add Partner
                             </h2>
                         </div>
                         <div className="p-8">
                             <RegisterPartnerForm onSuccess={handleInvestmentAdded} />
                         </div>
-                    </div>
-
-                    <div className="p-8 surface-low rounded-2xl border border-outline-variant/10">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-on-surface-variant/40 mb-4">Ownership Guidelines</h3>
-                        <p className="text-[11px] text-on-surface-variant/60 leading-relaxed font-medium">
-                            Partner shares are calculated dynamically based on total capital injection. Pro-rata distributions ensure equitable profit sharing across the enterprise.
-                        </p>
                     </div>
                 </div>
 
@@ -55,9 +47,8 @@ export default function PartnersPage() {
                     <div className="bg-primary/5 px-8 py-4 border-b border-outline-variant/10 flex items-center justify-between shrink-0">
                         <h2 className="text-sm font-display font-bold uppercase tracking-[0.2em] text-primary/70 flex items-center gap-2">
                             <ClipboardList className="w-4 h-4" />
-                            Stakeholder Ledger
+                            Partner Summary
                         </h2>
-                        <span className="text-[10px] font-bold text-on-surface-variant/40">Equity Audit v2.0</span>
                     </div>
                     <div className="flex-1 overflow-y-auto custom-scrollbar p-0">
                         <PartnerList refreshTrigger={refreshList} />

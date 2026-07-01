@@ -169,7 +169,7 @@ export function IncomeList({ refreshTrigger, dateRange, onStatusChange }: { refr
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Received</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Balance</th>
                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-center">Status</th>
-                        <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right">Audit</th>
+                         <th className="px-8 py-5 text-[11px] font-display font-bold uppercase tracking-[0.2em] text-primary/40 text-right"></th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-outline-variant/5">
@@ -215,17 +215,17 @@ export function IncomeList({ refreshTrigger, dateRange, onStatusChange }: { refr
                                     </span>
                                 </td>
                                 <td className="px-8 py-6 text-right">
-                                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
+                                    <div className="flex items-center justify-end gap-2">
                                         <button 
                                             onClick={() => handleEditClick(inc)}
-                                            className="p-2 text-on-surface-variant/50 hover:text-primary hover:bg-primary/5 transition-all duration-300 rounded-lg"
+                                            className="p-2 text-on-surface-variant/30 hover:text-primary hover:bg-primary/5 active:scale-95 transition-all duration-300 rounded-lg cursor-pointer"
                                             title="Edit Records"
                                         >
                                             <Edit2 className="w-4 h-4" />
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(inc.id)}
-                                            className="p-2 text-on-surface-variant/50 hover:text-error hover:bg-error-container/20 transition-all duration-300 rounded-lg"
+                                            className="p-2 text-on-surface-variant/30 hover:text-error hover:bg-error-container/20 active:scale-95 transition-all duration-300 rounded-lg cursor-pointer"
                                             title="Purge Record"
                                         >
                                             <Trash2 className="w-4 h-4" />

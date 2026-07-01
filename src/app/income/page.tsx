@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { IncomeList } from "@/components/ui/income-list";
 import { DateFilter, DateRange } from "@/components/ui/date-filter";
-import { TrendingUp, FileText, Calendar, Hash, IndianRupee, Clock } from "lucide-react";
+import { FileText, Calendar, Hash, IndianRupee, Clock } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
@@ -62,12 +62,11 @@ export default function IncomePage() {
             {/* Header Section */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/10 pb-8">
                 <div className="max-w-2xl">
-                    <h1 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight flex items-center gap-4">
-                        Income Ledger
-                        <TrendingUp className="w-8 h-8 text-primary/20" />
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight">
+                        Income
                     </h1>
                     <p className="text-lg text-on-surface-variant font-medium mt-3 max-w-lg leading-relaxed">
-                        A definitive record of your business revenue, tracked with precision and transparency.
+                        All income from bookings and events.
                     </p>
                 </div>
                 <div className="flex-shrink-0">
@@ -113,9 +112,8 @@ export default function IncomePage() {
                         <div className="p-2 bg-primary/10 rounded-lg text-primary">
                             <IndianRupee className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">Revenue</span>
                     </div>
-                    <p className="text-sm font-medium text-on-surface-variant">Total Revenue</p>
+                    <p className="text-sm font-medium text-on-surface-variant">Total Income</p>
                     <p className="mt-2 text-3xl font-display font-bold text-primary">
                         {loading ? "..." : `₹${metrics.totalRevenue.toLocaleString()}`}
                     </p>
@@ -150,9 +148,8 @@ export default function IncomePage() {
                     <div className="bg-primary/5 px-8 py-4 border-b border-outline-variant/10 flex items-center justify-between shrink-0">
                         <h2 className="text-sm font-display font-bold uppercase tracking-[0.2em] text-primary/70 flex items-center gap-2">
                             <FileText className="w-4 h-4" />
-                            Systematic Booking Records
+                            Booking Records
                         </h2>
-                        <span className="text-[10px] font-bold text-on-surface-variant/40">Verified Audit Trail</span>
                     </div>
                     <div className="flex-1 overflow-y-auto custom-scrollbar p-0">
                         <IncomeList refreshTrigger={refreshList} dateRange={selectedRange} onStatusChange={() => setRefreshList(prev => prev + 1)} />
